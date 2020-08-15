@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang ='en'>
+    <head>
+        <meta charset="UTF-8">
+
+    </head>
+    <body>
+    {% if msg %}
+    {{ msg }}
+    {% endif %}
+    <h1><strong>{{ movie.title }}</strong></h1>
+    <img src={{movie.image}}/>
+    <h2>Rating: {{ movie.avg_rating }}/5</h2>
+    <p>Release Date: {{ movie.date }}</p>
+    <p>Duration: {{ movie.duration }}</p>
+    <p>Details: {{ movie.details }}</p>
+    <p>Genre: {{ movie.genre }}</p>
+    <p>Classification: {{ movie.classification }}</p>
+    <a href="{% url 'home' %}">Go Home</a>
+    <br/>
+    <a href="{% url 'edit' movie.id %}">Edit Movie</a>
+    <br/>
+    <a href="{% url 'delete' movie.id %}">Delete Movie</a>
+    <br/>
+    <a href="{% url 'ratings' movie.id %}">See Ratings for {{ movie.title }}</a>
+    </body>
+</html>

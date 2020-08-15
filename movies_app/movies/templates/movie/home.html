@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang ='en'>
+    <head>
+        <meta charset="UTF-8">
+
+    </head>
+    <body>
+    {% if msg %}
+    <h4>{{ msg }}</h4>
+    {% endif %}
+
+    <h4>Movies</h4> <p>Total movies in tha database: {{ movie_num }}</p>
+    <a href = "{% url 'new' %}">Add a new Movie</a>
+    <p>Display By:</p>
+    <a href="{% url 'release_date' %}">Release Date</a>
+    <a href="{% url 'sort_by_rating' %}">Rating</a>
+    <br/>
+    <br/>
+    <br/>
+    <form action="search?title={title}">
+        <input name="search" title="{{ movie.title }}"/>
+        <button type="submit">Search By Movie Title</button>
+    </form>
+
+   {% if movies %}
+        <table>
+        <tr>
+            <th>Title</th>
+            <th>Release Date</th>
+            <th>Rating</th>
+        </tr>
+    {% for movie in movies %}
+
+        <tr>
+            <td><a href="{% url 'detail' movie.id %}">{{ movie.title }}</a></td>
+            <td>{{ movie.date }}</td>
+            <td>{{ movie.avg_rating }}/5</td>
+        </tr>
+    <br>
+    {% endfor %}
+            </table>
+    {% else %}
+        <div>No Movies are currently added to the database</div>
+    {% endif %}
+
+    </body>
+</html>

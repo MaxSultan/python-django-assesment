@@ -1,0 +1,32 @@
+
+
+{% block content %}
+<h1>{{ err_msg }}</h1>
+<form method="POST" action="/movies/update/{{movieData.id}}">
+    {% csrf_token %}
+    Edit Movie
+    <br/>
+    <label>Title</label>
+    <input type="text" name="title" value="{{ movieData.title }}"/>
+    <br/>
+    <label>Date (YYYY-MM-DD)</label>
+    <input type="text" name="date" value="{{ movieData.date }}" />
+    <br/>
+    <label>Image URL</label>
+    <input type="text" name="image" value="{{ movieData.image }}" />
+    <br/>
+    <label>Details</label>
+    <input type="text" name="details" value="{{ movieData.details }}" />
+    <br/>
+    <label>Genre</label>
+    <input type="text" name="genre" value="{{ movieData.genre }}"/>
+    <br/>
+    <label>Duration</label>
+    <input type="text" name="duration" value="{{ movieData.duration }}" />
+    <br/>
+    <label>Classification</label>
+    <input type="text" name="classification" value="{{ movieData.classification }}" />
+    <br/>
+    <button type="submit">Submit</button>  
+</form>  
+{% endblock %}

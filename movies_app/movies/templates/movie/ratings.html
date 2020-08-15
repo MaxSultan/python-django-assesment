@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ratings</title>
+</head>
+<body>
+  <h1>{{ movie.title }} Ratings</h1>
+
+  {% if ratings %}
+    <ul>
+    {% for rating in ratings %}
+            <li>
+            Rating: {{ rating.number }}/5 <br/> Comment: {{ rating.comment }}
+            </li>
+    {% endfor %}
+    </ul>
+    {% else %}
+        <div>No Ratings for this movie are currently added to the database</div>
+    {% endif %}
+    <a href="{% url 'detail' movie.id %}">Back to {{ movie.title }}</a>
+    <a href="{% url 'add_rating' movie.id %}">Add a rating</a>
+</body>
+</html>

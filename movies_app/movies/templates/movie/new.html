@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New Movie Form</title>
+</head>
+<body>
+  <h1>New Movie Form</h1>
+    <form method="POST">
+        <table>
+            {{ form }}
+        </table>
+        {% csrf_token %}
+        <button type="submit">Add</button>
+    </form>
+<a href="{% url 'home' %}">Back to Movies</a>
+</body>
+</html>
